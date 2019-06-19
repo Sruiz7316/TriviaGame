@@ -1,0 +1,26 @@
+div {
+    background-color: white;
+    min-height: 30px;
+    border: 1px dashed #777;
+}
+
+#container {
+    background-image: url('https://i.redd.it/d5g2jaawgw431.jpg');
+    background-position:center;
+    background-size: cover;
+    height: 600px;
+ }
+
+#questions {
+   height: 600px;
+   margin-left: 170px;
+   margin-right: 170px;
+}
+
+#header {
+    text-align: center;
+    font-family: fantasy;
+    color: teal;
+    font-size: 36px;
+    margin-top: 15px;
+}

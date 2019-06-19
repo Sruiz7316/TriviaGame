@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+    <title>Trivia Game!</title>
+</head>
+<body>
+    <div id="container">
+        <header id="header">Legend of Zelda <br> Totally Trivial Trivia!</header>
+        <div id="questions">
+
+        </div>
+    </div>
+    <script>
+        //items[2][4] Matrix
+        // var items = [
+        //     ['Q','A','O1','O2','O3','O4'],
+        //     ['Q','A','O1','O2','O3','O4'],
+        //     ['Q','A','O1','O2','XX','O4'],
+        // ];
+        var items = [
+            {
+                'question' : 'Q',
+                'answer'  : 'A',
+                'option1' : 'O1',
+                'option2' : 'O2',
+                'option3' : 'O3',
+                'option4' : 'O4',
+            },
+            {
+                'question' : 'What was the first full length CGI movie?',
+                'answer'  : 'A bug life',
+                'option1' : 'A bug life',
+                'option2' : 'Monsters Inc',
+                'option3' : 'Toy Story',
+                'option4' : 'The Lion King',
+            },
+            {
+                'question' : 'q3',
+                'answer'  : 'A3',
+                'option1' : 'o1',
+                'option2' : 'O2',
+                'option3' : 'Toy Story',
+                'option4' : 'The Lion King',
+            }
+        ];
+        $('document').ready(function(){
+            
+            var html = '';
+            // console.log(html);
+            for (var i = 0; i < items.length; i++) {
+                var currentItem = items[i];
+                html = html + '<div class="item" data-correct-answer="'+currentItem.answer+'">';
+                html = html + '   <div class="question">'+currentItem.question+'</div>';
+                html = html + '    <input type="radio" name="Q'+i+'" value="'+currentItem.option1+'">'+currentItem.option1;
+                html = html + '    <input type="radio" name="Q'+i+'" value="'+currentItem.option2+'">'+currentItem.option2;
+                html = html + '    <input type="radio" name="Q'+i+'" value="'+currentItem.option3+'">'+currentItem.option3;
+                html = html + '    <input type="radio" name="Q'+i+'" value="'+currentItem.option4+'">'+currentItem.option4;
+                html = html + '</div>';
+            }
+            $('#questions').html(html);
+            
+        });
+    </script>
+</body>
+</html> 
