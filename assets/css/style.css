@@ -15,6 +15,8 @@ div {
    height: 600px;
    margin-left: 170px;
    margin-right: 170px;
+   color: blue;
+   font-family: sans-serif;
 }
 
 #header {
@@ -24,3 +26,5 @@ div {
     font-size: 36px;
     margin-top: 15px;
 }
+
+{}
