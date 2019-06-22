@@ -1,22 +1,22 @@
 div {
     background-color: white;
     min-height: 30px;
-    border: 1px dashed #777;
 }
 
 #container {
     background-image: url('https://i.redd.it/d5g2jaawgw431.jpg');
     background-position:center;
     background-size: cover;
-    height: 600px;
+    height: 1000px;
  }
 
 #questions {
    height: 600px;
    margin-left: 170px;
    margin-right: 170px;
-   color: blue;
+   color: black;
    font-family: sans-serif;
+   font-weight: bold;
 }
 
 #header {
@@ -27,4 +27,19 @@ div {
     margin-top: 15px;
 }
 
-{}
+#mytime {
+    font-family: fantasy;
+    text-align: center;
+    width: 80px;
+    display: inline-block;
+    margin: 0px;
+}
+
+#time {
+    background-color: transparent;
+    font-family: fantasy;
+    color: black;
+    text-align: center;
+    width: 80px;
+    display: inline-block;
+}

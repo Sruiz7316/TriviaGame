@@ -12,11 +12,22 @@
 <body>
     <div id="container">
         <header id="header">Legend of Zelda <br> Totally Trivial Trivia!</header>
-        <div id="questions">
-
-        </div>
+        <div id="time">Time Remaining: <h1 id="mytime"></h1></div>
+        <div id="questions"></div>
     </div>
     <script>
+        var  i = 0;
+
+        const addName = () => {
+    ++i
+    //$("#mytime").append(`<h1>${i}</h1>`)
+    $("#mytime").text(i)
+    if(i >= 30){
+        clearInterval(myTimer)
+    }
+    }
+
+    var myTimer = setInterval(addName, 1000)
         //items[2][4] Matrix
         // var items = [
         //     ['Q','A','O1','O2','O3','O4'],
