@@ -1,30 +1,37 @@
 div {
     background-color: white;
     min-height: 30px;
+    margin: 10px;
 }
 
 #container {
     background-image: url('https://i.redd.it/d5g2jaawgw431.jpg');
-    background-position:center;
     background-size: cover;
-    height: 1000px;
+    height: 1100px;
+    width: 1320px;
+    position: absolute;
  }
 
 #questions {
-   height: 600px;
+   
    margin-left: 170px;
    margin-right: 170px;
-   color: black;
-   font-family: sans-serif;
+   color: teal;
+   font-family: 'Times New Roman', Times, serif;
    font-weight: bold;
+   font-size: 24px;
+   text-align: center;
+   position: relative;
 }
 
 #header {
     text-align: center;
     font-family: fantasy;
-    color: teal;
+    color: black;
     font-size: 36px;
     margin-top: 15px;
+    position: relative;
+    top: 50px;
 }
 
 #mytime {
@@ -41,5 +48,15 @@ div {
     color: black;
     text-align: center;
     width: 80px;
-    display: inline-block;
+    position: relative;
+    left: 600px;
+    margin: 0;
+}
+
+#start_button {
+    position: relative;
+    top: 160px;
+    left: 560px;
+    padding: 15px 32px;
+    font-size: 25px;
 }

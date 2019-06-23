@@ -3,7 +3,7 @@
 <head>
         
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
@@ -14,20 +14,22 @@
         <header id="header">Legend of Zelda <br> Totally Trivial Trivia!</header>
         <div id="time">Time Remaining: <h1 id="mytime"></h1></div>
         <div id="questions"></div>
+        <button id="start_button">Start Game</button>
     </div>
     <script>
-        var  i = 0;
+        //var  i = 30;
 
-        const addName = () => {
-    ++i
+        //const addName = () => {
+    //--i
     //$("#mytime").append(`<h1>${i}</h1>`)
-    $("#mytime").text(i)
-    if(i >= 30){
-        clearInterval(myTimer)
-    }
-    }
+    //$("#mytime").text(i)
+    //--i
+    //if(i <= 0){
+      //  clearInterval(myTimer)
+    //}
+    //}
 
-    var myTimer = setInterval(addName, 1000)
+    //var myTimer = setInterval(addName, 1000)
         //items[2][4] Matrix
         // var items = [
         //     ['Q','A','O1','O2','O3','O4'],
@@ -117,7 +119,7 @@
             },
         ];
         $('document').ready(function(){
-            
+            //$('#questions').hide();
             var html = '';
             // console.log(html);
             for (var i = 0; i < items.length; i++) {
@@ -130,9 +132,62 @@
                 html = html + '    <input type="radio" name="Q'+i+'" value="'+currentItem.option4+'">'+currentItem.option4;
                 html = html + '</div>';
             }
-            $('#questions').html(html);
-            
+            $('#questions').html(html); //do not show questions ... yet
+          	$('#questions').hide();
+            $('#time').hide();
+          
+          	$("#start_button").on("click", startGame);
         });
+      
+      	function startGame(){
+            //1. show questions
+            $('#questions').show();
+            //2. show 30 seconds remaining
+            $('#time').show();
+            //makes time show
+            var  i = 30;
+            $("#mytime").text(i);
+            //3. start timer
+          	//function that runs every second
+            const addName = () => {
+                --i
+                //$("#mytime").append(`<h1>${i}</h1>`)
+                $("#mytime").text(i)
+                if(i <= 0){
+                    clearInterval(myTimer)
+                  	endGame();
+                }
+            }
+            var myTimer = setInterval(addName, 1000);
+            //4. change text of start button
+            $("#start_button").text("Finished!");
+          	//5. change click event handler for button
+          	$("#start_button").off("click", startGame);
+          	$("#start_button").on("click", endGame);
+        }
+      
+      	function endGame(){
+          	var correct = 0;
+          	var incorrect = 0;
+        	//1. tally up correct and incorrect answers
+          	for (let i=0; i<items.length; i++){
+              	//for each question set, get the radio button selected and its value
+            	let userAnswer = $("input[name='Q"+ i +"']:checked");
+              	if (userAnswer) { //existential: does userAnswer exist?
+                  	userAnswer = userAnswer.val(); //doesn't break if user doesn't answer
+                }
+              	if (userAnswer === items[i].answer){
+                  	correct++;
+                }
+              	else {
+                  	incorrect++;
+                }
+            }
+              //2. show results
+            //   $('<p>').attr('id', result);
+            //     $('p').text('Correct: " + correct + "\nIncorrect: " + incorrect')
+          	alert("Correct: " + correct + "\nIncorrect: " + incorrect);
+        }
     </script>
 </body>
 </html> 
